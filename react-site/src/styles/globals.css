@@ -1,0 +1,349 @@
+@font-face {
+  font-family: Boilover;
+  /*font-family: sans;*/
+  font-style: normal;
+  font-weight: normal;
+  src: url('./font/Boilover/Fonts/Boilover Medium.eot');
+  /*src: url('/assets/fonts/sans/IRANSansWeb.eot?#iefix') format('embedded-opentype'),*/
+  /*url('/assets/fonts/sans/IRANSansWeb.woff2') format('woff2'),*/
+  /*url('/assets/fonts/sans/IRANSansWeb.woff') format('woff'),*/
+  /*url('/assets/fonts/sans/IRANSansWeb.ttf') format('truetype');*/
+}
+@font-face {
+  font-family: Due;
+  /*font-family: sans;*/
+  font-style: normal;
+  font-weight: normal;
+  src: url('./font/Due Credit/Due Credit 1/WOFF/DueCredit-Regular.woff2');
+  /*src: url('/assets/fonts/sans/IRANSansWeb.eot?#iefix') format('embedded-opentype'),*/
+  /*url('/assets/fonts/sans/IRANSansWeb.woff2') format('woff2'),*/
+  /*url('/assets/fonts/sans/IRANSansWeb.woff') format('woff'),*/
+  /*url('/assets/fonts/sans/IRANSansWeb.ttf') format('truetype');*/
+}
+
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-pagination-fraction{
+
+     color: white;
+     font-weight: 500;
+
+}
+
+.swiper-pagination-bullet-active.swiper-pagination-bullet{
+
+  background: none;
+  opacity: 1;
+  color:#d73f2f!important; ;
+
+}.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+
+  background: black;
+
+
+}
+.swiper-pagination-bullet{
+
+  background: white;
+  opacity: 1;
+  color:white!important;
+
+}
+.swiper-pagination-bullet{
+  margin-left: 2em;
+  width: 20px!important;
+  height: 20px!important;
+  background:none!important;
+  color:white!important;
+  font-size:14px!important;
+  line-height:2;
+  opacity:1!important;
+  display: flex!important;
+  justify-content: center;
+  align-items: center;
+    font-weight:bold!important;
+
+}
+.bg-cover{
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+.color-Valencia{
+  color:#D73F2F!important;
+}
+.color-gray{
+  color:#8E8E8E
+}
+.Boilover{
+  font-family: Boilover;
+}
+.Due{
+  font-family: Due;
+}
+.object-fit-container{
+  object-fit: contain;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 780px) {
+  .arrowposition{
+    top:65%;
+    right:2%
+  }
+  .btn-Slider-more{
+    font-size: 9px!important;
+  padding: 7px 20px!important;
+  }
+  .ml-links{
+    margin-left: -2%;
+  }
+  .logo-img{
+    width:50px;
+    height: 40px;
+  }
+  .social-img{
+    width:20px;
+    height: 20px;
+  }
+  .Fs-14-1-4{
+    font-size: 16px;
+  }
+  .Fs-12-1{
+    font-size: 12px;
+  }
+  .Fs-37-3-7{
+    font-size: 37px;
+  }
+  .Fs-50-6{
+    font-size: 54px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 780px) {
+  .arrowposition{
+    top:65%;
+    right:2%
+  }
+  .btn-Slider-more{
+    font-size: 9px!important;
+    padding: 7px 20px!important;
+  }
+  .ml-links{
+    margin-left: -2%;
+  }
+  .logo-img{
+    width:50px;
+    height: 40px;
+  }
+  .social-img{
+    width:20px;
+    height: 20px;
+  }
+  .Fs-14-1-4{
+    font-size: 16px;
+  }
+  .Fs-37-3-7{
+    font-size: 37px;
+  }
+
+  .Fs-50-6{
+    font-size: 54px;
+  }
+
+  .Fs-12-1{
+    font-size: 12px;
+  }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .arrowposition{
+    top:65%;
+    right:2%
+  }
+  .btn-Slider-more{
+    font-size: 9px!important;
+    padding: 7px 20px!important;
+  }
+  .ml-links{
+    margin-left: -2%;
+  }
+  .logo-img{
+    width:50px;
+    height: 40px;
+  }
+  .Fs-14-1-4{
+    font-size: 16px;
+  }
+  .Fs-37-3-7{
+    font-size: 37px;
+  }
+
+  .Fs-50-6{
+    font-size: 54px;
+  }
+
+  .Fs-12-1{
+    font-size: 12px;
+  }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .arrowposition{
+    top:60%;
+    right:1%
+  }
+  .btn-Slider-more{
+    font-size: 1.5vw !important;
+    padding: 1vw 1.7vw !important;
+  }
+
+  .ml-links{
+    margin-left: -1%;
+  }
+  .logo-img{
+    max-width:90px;
+    max-height: 70px;
+    width: 6.6vw;
+    height: 5vw
+  }
+  .Fs-14-1-4{
+    font-size: 1.4vw;
+  }
+  .Fs-37-3-7{
+    font-size: 3.7vw;
+  }
+  .Fs-12-1{
+    font-size: 1vw;
+  }
+  .Fs-50-6{
+    font-size:6vw;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .arrowposition{
+    top:56%;
+    right:0.5%
+  }
+
+}
+.w-80{
+  width: 80%;
+}
+
+
+
+
+
+/*"&#custom-pagination": {*/
+/*".swiper-pagination-bullet": {*/
+/*                             width: "20px",*/
+/*                             height: "20px",*/
+/*                             bg: "rgba(0, 0, 0, 0.2)",*/
+/*                             color: "white",*/
+/*                             fontSize: 2,*/
+/*                             lineHeight: "20px",*/
+/*                             opacity: 1,*/
+/*                             textAlign: "center"*/
+/*                           },*/
+/*".swiper-pagination-bullet-active": {*/
+/*                                    bg: "gray.9",*/
+/*                                    color: "white"*/
+/*                                  }*/
+/*}*/
+
+.rotation90 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/*@media only screen and (orientation:portrait){*/
+/*  html {*/
+/*    height: 100vw;*/
+/*    -webkit-transform: rotate(90deg);*/
+/*    -moz-transform: rotate(90deg);*/
+/*    -o-transform: rotate(90deg);*/
+/*    -ms-transform: rotate(90deg);*/
+/*    transform: rotate(90deg);*/
+/*  }*/
+/*}*/
+/*@media only screen and (orientation:landscape){*/
+/*  html {*/
+/*    -webkit-transform: rotate(0deg);*/
+/*    -moz-transform: rotate(0deg);*/
+/*    -o-transform: rotate(0deg);*/
+/*    -ms-transform: rotate(0deg);*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*}*/
+.block-title {
+  flex: 1 1 auto;
+  min-height: 1.75rem;
+  margin: 0;
+
+  font-size: calc( 0.5vw + 0.65rem);
+  font-weight: 700;
+  line-height: 1.75;
+  text-transform: uppercase;
+
+  /*color: #4C475A!important;*/
+
+}
+/*.border-b-s {*/
+/*  border-bottom: 1.5px solid  #8E8E8E;*/
+/*}*/
+.blur-7{
+  filter: blur(7px);
+
+}
+
+.centered-axis-xy {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+#Rotation { display: none; }
+@media only screen and (orientation:portrait){
+  #main { display:none; }
+  #Rotation { display:block; }
+}
+@media only screen and (orientation:landscape){
+  #Rotation { display:none; }
+}
