@@ -1,265 +1,372 @@
 // import React, {useState, useEffect, useRef, useCallback} from 'react';
-import React, { useRef } from 'react';
+import { Col, Row } from 'antd';
+import React, { useEffect, useRef } from 'react';
 import Swiper from 'react-id-swiper';
 
 // import IconsTop from "../Icons/IconsTop";
-import {Link} from "react-router-dom";
-
+import { Link } from 'react-router-dom';
+import TeamContainer from './TeamContainer';
+import TextContainer from './TextContainer';
+import TwoColCountainer from './TwoColContainer';
 // export const renderSlide = ({ id, ...rest }) => (
 //     <EachItem {...rest} key={`${id}-slideContent`}   />
 // );
 
+const EachItem = (props) => {
+  let { bg, Name, Header, subHeader, id, btnTxt, btnLink, btn2Txt, btn2Link } =
+    props;
 
-const EachItem=(props)=>{
-
-    let {bg,Name,Header,subHeader,id,btnTxt,btnLink}=props
-    return(
-
-        <div className={["   bg-cover position-relative 100vh ", bg].join(" ")}
-             style={{backgroundImage: `url(${bg})`}} key={id}>
-            <div className='w-100 px-4 d-flex flex-column h-100'>
-                <div className='w-100 d-flex justify-content-between mt-1  '>
-                    <h1 className='Due fw-bold text-white Fs-37-3-7'  >{Name}</h1>
-                    <img src='/img/items/logo.png' alt="logo" className='logo-img'/>
-
-                </div>
-                <div className='w-100 d-flex justify-content-start mt-3 mt-lg-4 pt-0 pt-lg-5 mb-0 mb-md-1 mb-lg-4 pb-4 ml-links '  >
-                    <div className='  ml-2   '>
-
-                        <Link to='/' className=' text-decoration-none'>
-                            <span className='color-Valencia Boilover   d-block rotation90 Fs-14-1-4 text-decoration-none'  >Home</span>
-                        </Link>
-
-
-                        <span
-                              onClick={(e) => {
-                                  window.location ="mailto:info@thehandmade.io";
-                                  e.preventDefault();
-                              }}   className="d-block">
-                            <span className='Boilover text-white text-decoration-none d-block rotation90 Fs-14-1-4 mt-4 mt-lg-5 cursor-pointer '  >contact</span>
-                        </span>
-
-                    </div>
-                </div>
-
-
-
-                <div>
-                    <h2 className='Due fw-bold text-white Fs-50-6'  >{Header}</h2>
-                    <h3 className='Due text-white Fs-37-3-7'  >{subHeader}</h3>
-                    {
-                        id!==3?
-                            <span
-                                  onClick={(e) => {
-                                      window.location =btnLink;
-                                      e.preventDefault();
-                                  }}  >
-                                <span className='btn   color-Valencia bg-black Boilover btn-Slider-more fw-bold'  >{btnTxt}</span>
-                            </span>
-                                // <Link to={btnLink}  > <span className='btn   color-Valencia bg-black Boilover btn-Slider-more'>{btnTxt}</span></Link>
-                    :
-                            <div className='d-flex '>
-
-                                <a href={btnTxt} target="_blank" rel="noopener noreferrer"  style={{width:'10vw'}}>
-                                     {/*<img src='/img/items/google.png' className='me-3 social-img object-fit-container cursor-pointer w-100'  alt="twitter"/>*/}
-                                    <img src='/img/items/google.png' className='  cursor-pointer w-100'  alt="twitter"/>
-
-                                </a>
-                                <a href={btnLink} target="_blank" rel="noopener noreferrer" className='ms-2'  style={{width:'10vw'}}>
-
-                                          <img src='/img/items/apple.png' className='  cursor-pointer w-100  '  alt="twitter"/>
-
-
-                                </a>
-                            </div>
-
-
-                    }
-                </div>
-                <div className=' d-flex mt-auto w-100'  >
-                    <div className='w-100 d-flex  justify-content-between align-items-center mb-1 mb-lg-3'>
-                        <p className='Boilover  color-gray mb-0 Fs-12-1 mb-0' >Handmade Interactive
-                            LLC, All Right Reserved</p>
-
-                        <div className='d-flex  '>
-                            <Link to='https://twitter.com/handmadellc'>
-                                <img src='/img/items/twitter.png' className='me-3 social-img object-fit-container cursor-pointer'  alt="twitter"/>
-                            </Link>
-                            <Link to='https://www.youtube.com/channel/UCi6xob2DaoNcGRNnhoRGNpQ'>
-                                <img src='/img/items/youtube.png' className='me-3 social-img object-fit-container cursor-pointer'  alt="youtube"/>
-                            </Link>
-                            <Link to='https://www.instagram.com/thehandmade.io/'>
-                                <img src='/img/items/instagram.png'  className='me-3 social-img object-fit-container cursor-pointer'  alt="instagram"/>
-                            </Link>
-                            <Link to='https://www.linkedin.com/company/handmadeinteractive'>
-                                <img src='/img/items/linkedin.png' className='me-3 social-img object-fit-container cursor-pointer'  alt="linkedin"/>
-                            </Link>
-                            <Link to='https://www.facebook.com/TicketToHeavenGame/'>
-                                <img src='/img/items/facebook.png' className='me-5 social-img object-fit-container cursor-pointer' alt="facebook"/>
-                            </Link>
-
-                        </div>
-
-                        <span
-                              onClick={(e) => {
-                                  window.location ="mailto:info@thehandmade.io";
-                                  e.preventDefault();
-                              }} >
-                            <span className='Boilover  text-white Fs-12-1  ' >info@thehandmade.io</span>
-                        </span>
-
-                    </div>
-
-                </div>
-
+  const Team = [
+    {
+      id: 1,
+      profile: '/img/kayhan_team.png',
+      name: 'kayhan Yaghoubian',
+      job: 'Game Director',
+    },
+    {
+      id: 2,
+      profile: '/img/morteza_team.png',
+      name: 'Morteza Soozban',
+      job: 'Art Director',
+    },
+    {
+      id: 3,
+      profile: '/img/kayvan_team.png',
+      name: 'Keyvan Yaghoubian',
+      job: 'Product Manager',
+    },
+    {
+      id: 4,
+      profile: '/img/amir_team.png',
+      name: 'Amir H Ebadatiyan',
+      job: 'Lead Technical Developer',
+    },
+    {
+      id: 5,
+      profile: '/img/amin_team.png',
+      name: 'Amin Jamal',
+      job: 'Lead back-end Developer',
+    },
+    {
+      id: 6,
+      profile: '/img/ehsan_team.png',
+      name: 'Ehsan Samimi',
+      job: 'Lead Front Developer',
+    },
+    {
+      id: 7,
+      profile: '/img/Mohammad_team.png',
+      name: 'Mohammad Joorsara',
+      job: 'Lead Graphic Designer',
+    },
+    {
+      id: 8,
+      profile: '/img/Sahand_team.png',
+      name: 'Sahand Mirzai',
+      job: 'UI/UX Designer',
+    },
+    {
+      id: 9,
+      profile: '/img/Mahdi_team.png',
+      name: 'Mahdi Nazari',
+      job: 'Character Artist and Animator',
+    },
+    {
+      id: 10,
+      profile: '/img/tarokh_team.png',
+      name: 'Tarokh Tarhandeh',
+      job: 'PR Epert',
+    },
+    {
+      id: 11,
+      profile: '/img/shoabe_team.png',
+      name: 'Shoabe Arab',
+      job: 'Sound And Music Composer',
+    },
+    {
+      id: 12,
+      profile: '/img/sajjad_team.png',
+      name: 'Sajjad Saeedi',
+      job: 'Associate Game Designer',
+    },
+    {
+      id: 13,
+      profile: '/img/Payman_team.png',
+      name: 'Payman Ansari',
+      job: 'Technical Developer',
+    },
+    {
+      id: 14,
+      profile: '/img/reza_team.png',
+      name: 'Reza Afshar',
+      job: 'External Concept Artist',
+    },
+    {
+      id: 15,
+      profile: '/img/kian_team.png',
+      name: 'Kian Ashrafi',
+      job: 'External Graphic Designer',
+    },
+  ];
+  return (
+    <Row
+      className={['bg-cover position-relative 100vh', bg].join(' ')}
+      style={{ backgroundImage: `url(${bg}) `, zIndex: '0' }}
+      key={id}
+    >
+      <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+        {/* <div className="w-100 d-flex justify-content-start mt-3 mt-lg-4 pt-0 pt-lg-5 mb-0 mb-md-1 mb-lg-4 pb-4 ml-links ">
+          <h1>id : {id}</h1>
+        </div> */}
+      </Col>
+      {/* ! Middle */}
+      <Col xs={22} sm={22} md={22} lg={22} xl={22} className="middle-col">
+        <div className="middle-content">
+          {/* Slides 1 3 4 */}
+          {(id === 1 || id === 3 || id === 4) && (
+            <div className="text-content">
+              <TextContainer
+                Name={Name}
+                Header={Header}
+                subHeader={subHeader}
+                id={id}
+                btnTxt={btnTxt}
+                btnLink={btnLink}
+                btn2Txt={btn2Txt}
+                btn2Link={btn2Link}
+              />
             </div>
-
-
-
+          )}
+          {/* Slides 2 */}
+          {id === 2 && (
+            <TwoColCountainer
+              Name={Name}
+              Header={Header}
+              subHeader={subHeader}
+              id={id}
+              btnTxt={btnTxt}
+              btnLink={btnLink}
+              btn2Txt={btn2Txt}
+              btn2Link={btn2Link}
+            />
+          )}
+          {id === 5 && (
+            <TeamContainer
+              Teams={Team}
+              Name={Name}
+              Header={Header}
+              subHeader={subHeader}
+              id={id}
+              btnTxt={btnTxt}
+              btnLink={btnLink}
+              btn2Txt={btn2Txt}
+              btn2Link={btn2Link}
+            />
+          )}
         </div>
-    )
-}
+      </Col>
+      <Col xs={1} sm={1} md={1} lg={1} xl={1}>
+        right
+      </Col>
+    </Row>
+  );
+};
 
 const Slider = (props) => {
-    const swiperRef = useRef(null);
-    const initialSlide = 0;
+  const swiperRef = useRef(null);
+  const initialSlide = 0;
 
-    // const [sliderIndex, updateCurrentIndex] = useState(0);
+  // const [sliderIndex, updateCurrentIndex] = useState(0);
 
+  const params = {
+    initialSlide: initialSlide || 0,
+    slidesPerView: 1,
+    speed: 700,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    direction: 'vertical',
+    // pagination: {
+    //     el: '.swiper-pagination',
+    //     type: 'bullets',
+    //     clickable: true
+    // }
+  };
+  // const updateIndex = useCallback(
+  //
+  //     () =>{
+  //
+  //         // dispatch(HOME_SLIDER(swiperRef.current.swiper.realIndex))
+  //         updateCurrentIndex(swiperRef.current.swiper.realIndex)} ,
+  //     []
+  // );
+  //
+  // useEffect(() => {
+  //     const swiperInstance = swiperRef.current.swiper;
+  //
+  //     if (swiperInstance) {
+  //
+  //         swiperInstance.on("slideChange", updateIndex);
+  //     }
+  //
+  //     return () => {
+  //         if (swiperInstance) {
+  //             swiperInstance.off("slideChange", updateIndex);
+  //         }
+  //     };
+  // }, [updateIndex]);
 
-    const params = {
-        initialSlide: initialSlide || 0,
-        // rtl: "ltr",
-        slidesPerView: 1,
-        speed: 700,
-        // centeredSlides: true,
-        // spaceBetween: 8,
-        loop: true,
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
-
-        // pagination: {
-        //     el: '.swiper-pagination',
-        //     type: 'bullets',
-        //     clickable: true
-        // },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            renderBullet: (index, className) => {
-                return '<span class="' + className + ' rotation90 '+ '">' +'0' + (index + 1) + '</span>';
-            }
-        },
-        direction: 'vertical',
-        // pagination: {
-        //     el: '.swiper-pagination',
-        //     type: 'bullets',
-        //     clickable: true
-        // }
-
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
     }
-    // const updateIndex = useCallback(
-    //
-    //     () =>{
-    //
-    //         // dispatch(HOME_SLIDER(swiperRef.current.swiper.realIndex))
-    //         updateCurrentIndex(swiperRef.current.swiper.realIndex)} ,
-    //     []
-    // );
-    //
-    // useEffect(() => {
-    //     const swiperInstance = swiperRef.current.swiper;
-    //
-    //     if (swiperInstance) {
-    //
-    //         swiperInstance.on("slideChange", updateIndex);
-    //     }
-    //
-    //     return () => {
-    //         if (swiperInstance) {
-    //             swiperInstance.off("slideChange", updateIndex);
-    //         }
-    //     };
-    // }, [updateIndex]);
+  };
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
 
-    const goNext = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slideNext();
-        }
-    };
-    const goPrev = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slidePrev();
-        }
-    };
+  const SliderInside = [
+    {
+      bg: '/img/bg/slide1_cover.png',
+      Name: 'Ticket To Heaven',
+      Header: 'Fight to heaven, or stay  in hell',
+      subHeader:
+        'Enter the ultimate battle to win the grand prize of a ticket to heaven',
+      id: 1,
+      btnTxt: 'Availble 2024',
+      btnLink: 'http://tickettoheaven.thehandmade.io/',
+      btn2Txt: 'Learn More',
+      btn2Link: 'http://tickettoheaven.thehandmade.io/',
+    },
+    {
+      bg: '/img/bg/slide2_cover.png',
+      Name: 'Our Mission, Making Games',
+      Header: 'The Ultimate Fun in Your Pockets',
+      subHeader:
+        'enjoy our casual and cross platform games for your mobile devices availble on android and IOS',
+      id: 2,
+      btnTxt: 'App Store',
+      btnLink:
+        'https://apps.apple.com/us/developer/shima-ghafouri/id1534210976',
+      btn2Txt: 'Google Play',
+      btn2Link: 'http://tickettoheaven.thehandmade.io/',
+    },
+    {
+      bg: '/img/bg/slide3_cover.png',
+      Name: 'Our Mission, Making Games',
+      Header: `its all about you! all the time...`,
+      subHeader:
+        'For more than 10 years weve been dedicated to create unique games in the most creactive way...',
+      id: 3,
+      btnTxt: 'Drop A Message',
+      btnLink: 'mailto:info@thehandmade.io',
+      btn2Txt: 'Learn More',
+      btn2Link: 'http://tickettoheaven.thehandmade.io/',
+    },
+    {
+      bg: '/img/bg/slide4_cover.png',
+      Name: 'Upcoming Harror Story',
+      Header: 'thers a new fear in the universe',
+      subHeader:
+        'Enter the journey to the heart of the universe as the bounty hunter who discovers stynning mysteries',
+      id: 4,
+      btnTxt: 'TBA',
+      btnLink: 'mailto:info@thehandmade.io',
+      btn2Txt: 'Learn More',
+      btn2Link: 'http://tickettoheaven.thehandmade.io/',
+    },
+    {
+      bg: '/img/bg/slide5_cover.png',
+      Name: 'GET IN TOUCH',
+      Header: 'INTERESTED IN WORKING WITH US',
+      subHeader: 'SEND US A MESSAGE ABOUT YOUR BUSINESS',
+      id: 5,
+      btnTxt: 'Drop A Message',
+      btnLink: 'mailto:info@thehandmade.io',
+      btn2Txt: 'Learn More',
+      btn2Link: 'http://tickettoheaven.thehandmade.io/',
+    },
+  ];
 
+  return (
+    <div className=" position-relative" id="main">
+      <Swiper {...params} ref={swiperRef}>
+        {SliderInside.map(EachItem)}
+      </Swiper>
+      <span
+        style={{
+          position: 'absolute',
+          left: '6rem',
+          top: '3rem',
+          zIndex: '2',
+        }}
+      >
+        <img src="/img/items/logo.png" alt="logo" className="logo-img" />
+      </span>
+      <span
+        style={{
+          position: 'absolute',
+          right: '4rem',
+          top: '4rem',
+          zIndex: '2',
+          display: 'flex',
+        }}
+      >
+        <span className="nav">HOME</span>
+        <span className="nav">Our mission</span>
+        <span className="nav">Team</span>
+        <span className="nav">Contact Us</span>
+      </span>
 
-
-    const SliderInside = [
-        {bg: "/img/bg/slide1_cover.png",
-            Name:"THE LAST SCENT OF LOVE",
-            Header:"THE LAST SCENT OF LOVE",
-            subHeader:"STORY OF LOVE, AND LIBERATION",
-            id:1,
-            btnTxt:"COMING SOON",
-            btnLink:"/",
-        },
-        {bg: "/img/bg/slide2_cover.png",
-            Name:"TICKET TO HEAVEN",
-            Header:"THE GRAND TOURNAMENT OF LIFE AND DEATH",
-            subHeader:"FIGHT TO HEAVEN OR STAY IN HELL",
-            id:2,
-            btnTxt:"Learn More",
-            btnLink:"http://tickettoheaven.thehandmade.io/",
-        },
-        {bg: "/img/bg/slide3_cover.png",
-            Name:"HYPER CASUALS",
-            Header:"LET THE FUN BEGIN!",
-            subHeader:"HYPER CASUALS FOR HYPER TIMES",
-            id:3,
-            btnTxt:'https://play.google.com/store/apps/dev?id=7540410499310856189',
-            btnLink:"https://apps.apple.com/us/developer/shima-ghafouri/id1534210976",
-
-        },
-        {bg: "/img/bg/slide4_cover.png",
-            Name:"GET IN TOUCH",
-            Header:"INTERESTED IN WORKING WITH US",
-            subHeader:"SEND US A MESSAGE ABOUT YOUR BUSINESS",
-            id:4,
-            btnTxt:"Drop A Message",
-            btnLink:"mailto:info@thehandmade.io",
-        }
- ]
-
-
-    return (
-        <div className=" position-relative" id='main'>
-            <Swiper {...params} ref={swiperRef}>
-
-                {
-                    SliderInside.map(EachItem)
-
-                }
-
-            </Swiper>
-            <div className='position-absolute  d-flex flex-column arrowposition' style={{ zIndex:3}}>
-
-                      <span onClick={goNext} className='social-img d-flex justify-content-end' >
-                    <img src="/img/items/up-arrow.svg" alt="up" className=' w-80  object-fit-container cursor-pointer'/>
-                          {/*<img src="/img/items/up-arrow.svg" alt=""/>*/}
-                </span>
-
-                      <span onClick={goPrev} className='social-img d-flex justify-content-end mt-2 mt-lg-3 '>
-                    <img src="/img/items/down.svg" alt="down" className=' w-80 social-img object-fit-container cursor-pointer'/>
-                          {/*<img src="/img/items/up-arrow.svg" alt=""/>*/}
-                </span>
-
-
-            </div>
-        </div>
-    );
+      <div
+        className="  ml-2   "
+        style={{
+          position: 'absolute',
+          left: '1.5rem',
+          bottom: '4rem',
+          zIndex: '2',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Link
+          to="https://twitter.com/handmadellc"
+          style={{ marginTop: '0.7rem' }}
+        >
+          <img
+            src="/img/items/twitter.png"
+            className="me-3 social-img object-fit-container cursor-pointer"
+            alt="twitter"
+          />
+        </Link>
+        <Link
+          to="https://www.instagram.com/thehandmade.io/"
+          style={{ marginTop: '0.7rem' }}
+        >
+          <img
+            src="/img/items/instagram.png"
+            className="me-3 social-img object-fit-container cursor-pointer"
+            alt="instagram"
+          />
+        </Link>
+        <Link
+          to="https://www.linkedin.com/company/handmadeinteractive"
+          style={{ marginTop: '0.7rem' }}
+        >
+          <img
+            src="/img/items/linkedin.png"
+            className="me-3 social-img object-fit-container cursor-pointer"
+            alt="linkedin"
+          />
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default Slider;

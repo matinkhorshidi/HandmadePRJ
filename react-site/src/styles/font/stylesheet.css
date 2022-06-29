@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Grover Semi';
+    src: url('Grover-Semi-Bold.eot');
+    src: local('Grover Semi-Bold'), local('Grover-Semi-Bold'),
+        url('Grover-Semi-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Grover-Semi-Bold.woff2') format('woff2'),
+        url('Grover-Semi-Bold.woff') format('woff'),
+        url('Grover-Semi-Bold.ttf') format('truetype'),
+        url('Grover-Semi-Bold.svg#Grover-Semi-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grover';
+    src: url('Grover-Regular.eot');
+    src: local('Grover Regular'), local('Grover-Regular'),
+        url('Grover-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Grover-Regular.woff2') format('woff2'),
+        url('Grover-Regular.woff') format('woff'),
+        url('Grover-Regular.ttf') format('truetype'),
+        url('Grover-Regular.svg#Grover-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grover';
+    src: url('Grover-Black.eot');
+    src: local('Grover Black'), local('Grover-Black'),
+        url('Grover-Black.eot?#iefix') format('embedded-opentype'),
+        url('Grover-Black.woff2') format('woff2'),
+        url('Grover-Black.woff') format('woff'),
+        url('Grover-Black.ttf') format('truetype'),
+        url('Grover-Black.svg#Grover-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grover';
+    src: url('Grover-Bold.eot');
+    src: local('Grover Bold'), local('Grover-Bold'),
+        url('Grover-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Grover-Bold.woff2') format('woff2'),
+        url('Grover-Bold.woff') format('woff'),
+        url('Grover-Bold.ttf') format('truetype'),
+        url('Grover-Bold.svg#Grover-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
