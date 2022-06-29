@@ -14,7 +14,7 @@ const TwoColCountainer = ({
 }) => {
   return (
     <Row>
-      <Col xs={2} sm={4} md={6} lg={14} xl={14}>
+      <Col xs={24} sm={24} md={14} lg={14} xl={14}>
         <div className="text-content-2">
           <TextContainer
             Name={Name}
@@ -28,7 +28,7 @@ const TwoColCountainer = ({
           />
         </div>
       </Col>
-      <Col xs={2} sm={4} md={6} lg={10} xl={10}>
+      <Col xs={24} sm={24} md={10} lg={10} xl={10}>
         <Row justify="space-evenly" style={{ marginTop: '5rem' }}>
           <Col
             xs={2}

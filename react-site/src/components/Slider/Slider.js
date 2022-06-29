@@ -2,15 +2,10 @@
 import { Col, Row } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import Swiper from 'react-id-swiper';
-
-// import IconsTop from "../Icons/IconsTop";
 import { Link } from 'react-router-dom';
 import TeamContainer from './TeamContainer';
 import TextContainer from './TextContainer';
 import TwoColCountainer from './TwoColContainer';
-// export const renderSlide = ({ id, ...rest }) => (
-//     <EachItem {...rest} key={`${id}-slideContent`}   />
-// );
 
 const EachItem = (props) => {
   let { bg, Name, Header, subHeader, id, btnTxt, btnLink, btn2Txt, btn2Link } =
@@ -114,11 +109,7 @@ const EachItem = (props) => {
       style={{ backgroundImage: `url(${bg}) `, zIndex: '0' }}
       key={id}
     >
-      <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-        {/* <div className="w-100 d-flex justify-content-start mt-3 mt-lg-4 pt-0 pt-lg-5 mb-0 mb-md-1 mb-lg-4 pb-4 ml-links ">
-          <h1>id : {id}</h1>
-        </div> */}
-      </Col>
+      <Col xs={1} sm={1} md={1} lg={1} xl={1}></Col>
       {/* ! Middle */}
       <Col xs={22} sm={22} md={22} lg={22} xl={22} className="middle-col">
         <div className="middle-content">
@@ -137,7 +128,7 @@ const EachItem = (props) => {
               />
             </div>
           )}
-          {/* Slides 2 */}
+          {/* Slide 2 */}
           {id === 2 && (
             <TwoColCountainer
               Name={Name}
@@ -150,6 +141,7 @@ const EachItem = (props) => {
               btn2Link={btn2Link}
             />
           )}
+          {/* Slide 5 */}
           {id === 5 && (
             <TeamContainer
               Teams={Team}
@@ -165,9 +157,7 @@ const EachItem = (props) => {
           )}
         </div>
       </Col>
-      <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-        right
-      </Col>
+      <Col xs={1} sm={1} md={1} lg={1} xl={1}></Col>
     </Row>
   );
 };
@@ -186,48 +176,14 @@ const Slider = (props) => {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      dynamicBullets: true,
+      //   dynamicBullets: true,
+      //   renderBullet: (index, className) => {
+      //     return (
+      //       '<span class="' + className + '">' + '00' + (index + 1) + '</span>'
+      //     );
+      //   },
     },
     direction: 'vertical',
-    // pagination: {
-    //     el: '.swiper-pagination',
-    //     type: 'bullets',
-    //     clickable: true
-    // }
-  };
-  // const updateIndex = useCallback(
-  //
-  //     () =>{
-  //
-  //         // dispatch(HOME_SLIDER(swiperRef.current.swiper.realIndex))
-  //         updateCurrentIndex(swiperRef.current.swiper.realIndex)} ,
-  //     []
-  // );
-  //
-  // useEffect(() => {
-  //     const swiperInstance = swiperRef.current.swiper;
-  //
-  //     if (swiperInstance) {
-  //
-  //         swiperInstance.on("slideChange", updateIndex);
-  //     }
-  //
-  //     return () => {
-  //         if (swiperInstance) {
-  //             swiperInstance.off("slideChange", updateIndex);
-  //         }
-  //     };
-  // }, [updateIndex]);
-
-  const goNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-  const goPrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
   };
 
   const SliderInside = [
@@ -308,7 +264,7 @@ const Slider = (props) => {
       >
         <img src="/img/items/logo.png" alt="logo" className="logo-img" />
       </span>
-      <span
+      <div
         style={{
           position: 'absolute',
           right: '4rem',
@@ -317,11 +273,17 @@ const Slider = (props) => {
           display: 'flex',
         }}
       >
-        <span className="nav">HOME</span>
-        <span className="nav">Our mission</span>
-        <span className="nav">Team</span>
-        <span className="nav">Contact Us</span>
-      </span>
+        <a className="navlink-active navlink navlink-ltr">HOME</a>
+        <a className=" navlink navlink-ltr" href="/">
+          Our mission
+        </a>
+        <a className=" navlink navlink-ltr" href="/">
+          Team
+        </a>
+        <a className=" navlink navlink-ltr" href="/">
+          Contact Us
+        </a>
+      </div>
 
       <div
         className="  ml-2   "
@@ -365,6 +327,18 @@ const Slider = (props) => {
           />
         </Link>
       </div>
+      <span
+        style={{
+          position: 'absolute',
+          right: '4.5rem',
+          bottom: '4rem',
+          zIndex: '2',
+          display: 'flex',
+          color: '#ffff',
+        }}
+      >
+        2022 Handmade Interactive LLC, All Right Reserved
+      </span>
     </div>
   );
 };

@@ -175,6 +175,7 @@ const TeamContainer = ({
               <div
                 style={{
                   padding: '4px 0',
+                  marginTop: '-20px',
                 }}
               >
                 <img
@@ -188,6 +189,7 @@ const TeamContainer = ({
               <div
                 style={{
                   padding: '8px 0',
+                  marginTop: '-20px',
                 }}
               >
                 <img
